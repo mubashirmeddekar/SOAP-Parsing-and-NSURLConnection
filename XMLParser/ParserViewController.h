@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ParserViewController : UIViewController
+@interface ParserViewController : UIViewController<NSXMLParserDelegate>
+{
+    NSURLConnection *conn;
+    NSMutableData *webData;
+    NSString *matchingElement;
+    
+    NSMutableString *soapResults;
+    NSXMLParser *xmlParser;
+    BOOL elementFound;
+}
+@property (strong, nonatomic) IBOutlet UITextField *myText;
+- (IBAction)buttonPressed:(id)sender;
 
 @end
